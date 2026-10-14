@@ -1,0 +1,105 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme static {
+  --color-ground: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-ink: #15171a;
+  --color-muted: #5a5f66;
+  --color-line: #e1e3e7;
+  --color-line-strong: #c9cdd3;
+  --color-dash: #b9c0ca;
+  --color-column: #eceef1;
+  --color-track: #eceef1;
+
+  /* accent: rellenos con texto blanco; accent-ink: texto, bordes y barras */
+  --color-accent: #1f6f5b;
+  --color-accent-ink: #1f6f5b;
+  --color-accent-soft: #e3eeea;
+  --color-danger: #a12a1e;
+
+  --color-prio-high: #b42318;
+  --color-prio-high-inverse: #f0827a;
+  --color-prio-medium: #c98a1b;
+  --color-prio-low: #b9c0ca;
+
+  --color-status-todo: #8a9099;
+  --color-status-doing: #2f6fb5;
+  --color-status-review: #c98a1b;
+
+  --color-tag-design-bg: #e9e4f5;
+  --color-tag-design-fg: #4a3a80;
+  --color-tag-dev-bg: #ddebf7;
+  --color-tag-dev-fg: #1e4e79;
+  --color-tag-content-bg: #f6e7d3;
+  --color-tag-content-fg: #7a4a12;
+  --color-tag-bug-bg: #f8dfdc;
+  --color-tag-bug-fg: #8a2a20;
+
+  --font-sans: 'Onest', system-ui, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+
+  --shadow-card: 0 1px 2px rgb(21 23 26 / 0.04);
+  --shadow-lifted: 0 18px 36px rgb(21 23 26 / 0.16);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-ground: #111315;
+  --color-surface: #22262b;
+  --color-ink: #eceef1;
+  --color-muted: #a7adb5;
+  --color-line: #30353b;
+  --color-line-strong: #454b53;
+  --color-dash: #596069;
+  --color-column: #191c20;
+  --color-track: #30353b;
+
+  --color-accent-ink: #5fc4a8;
+  --color-accent-soft: #183029;
+  --color-danger: #f0827a;
+
+  --color-prio-high: #e5564a;
+  --color-prio-high-inverse: #b42318;
+  --color-prio-low: #7d8590;
+
+  --color-status-doing: #5a9be0;
+
+  --color-tag-design-bg: #2e2747;
+  --color-tag-design-fg: #cfc4f2;
+  --color-tag-dev-bg: #1b3350;
+  --color-tag-dev-fg: #b5d4f2;
+  --color-tag-content-bg: #45301a;
+  --color-tag-content-fg: #f0cfa0;
+  --color-tag-bug-bg: #4a211d;
+  --color-tag-bug-fg: #f5b8b1;
+
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3);
+  --shadow-lifted: 0 18px 36px rgb(0 0 0 / 0.5);
+}
+
+body {
+  @apply bg-ground font-sans text-[15px] leading-[1.45] text-ink antialiased;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent-ink);
+  outline-offset: 2px;
+}
+
+dialog::backdrop {
+  background: rgb(10 12 14 / 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
